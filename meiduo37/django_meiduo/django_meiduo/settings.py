@@ -85,7 +85,7 @@ DATABASES = {
         'PORT': 3306,  # 数据库端口
         'USER': 'root',  # 数据库用户名
         'PASSWORD': '111111',  # 数据库用户密码
-        'NAME': 'meiduo_mall'  # 数据库名字
+        'NAME': 'mall_meiduo'  # 数据库名字
     }
 }
 
@@ -195,3 +195,5 @@ REST_FRAMEWORK = {
     # 异常处理
     'EXCEPTION_HANDLER': 'utils.exceptions.exception_handler',
 }
+
+AUTH_USER_MODEL = 'users.User'
