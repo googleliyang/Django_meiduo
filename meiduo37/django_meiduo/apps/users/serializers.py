@@ -2,6 +2,8 @@ import re
 
 from rest_framework import serializers
 from django_redis import get_redis_connection
+from rest_framework_jwt.settings import api_settings
+
 from users.models import User
 
 # 有模型需要保存至模型情况下使用 ModelSerializer
@@ -13,10 +15,11 @@ class RegisterSerializer(serializers.ModelSerializer):
     # 短信验证码拿来验证
     sms_code = serializers.CharField(max_length=6, min_length=6, label='短信验证码', write_only=True)
     allow = serializers.CharField(label='是否同意协议', write_only=True)
+    token = serializers.CharField(label='登录状态token', read_only=True)  # 增加token字段
 
     class Meta:
         model = User
-        fields = ['username', 'mobile', 'password', 'allow', 'password2', 'sms_code']
+        fields = ['username', 'mobile', 'password', 'allow', 'password2', 'sms_code', 'token']
         extra_kwargs = {
             id: {'read_only': True},
             'username': {
@@ -74,5 +77,12 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = super().create(validated_data)
         user.set_password(password)
         user.save()
+
+        jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
+        jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
+        payload = jwt_payload_handler(user)
+        token = jwt_encode_handler(payload)
+        user.token = token
+
         return user
 

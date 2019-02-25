@@ -19,7 +19,16 @@ class RegisterUsernameApiView(APIView):
         return Response(count)
 
 
-class RegisterCreateView(CreateAPIView):
-    serializer_class = RegisterSerializer
+# class RegisterCreateView(CreateAPIView):
+#     serializer_class = RegisterSerializer
+
+class RegisterCreateView(APIView):
+
+    def post(self, req):
+        data = req.data
+        serializer = RegisterSerializer(data=data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(data=serializer.data)
 
 
