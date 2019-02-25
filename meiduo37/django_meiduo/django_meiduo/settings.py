@@ -28,7 +28,6 @@ SECRET_KEY = 'w0xsszs$-d*a&vpc7r+t2u6$b%$*e#qv%7ktuost@mx)ht3z@8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -145,6 +146,13 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
+    },
+    "code": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
     }
 }
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -184,7 +192,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {  # 定义了一个名为django的日志器
+        'meiduo': {  # 定义了一个名为django的日志器
             'handlers': ['console', 'file'],
             'propagate': True,
         },
@@ -194,6 +202,28 @@ LOGGING = {
 REST_FRAMEWORK = {
     # 异常处理
     'EXCEPTION_HANDLER': 'utils.exceptions.exception_handler',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
 }
 
 AUTH_USER_MODEL = 'users.User'
+
+# CORS
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1:8080',
+    'localhost:8080',
+    'www.meiduo.site:8080'
+)
+CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
+
+#允许哪些主机访问, 也就是哪个域名可以访问到我们的后台，这个是一种安全机制
+ALLOWED_HOSTS = ['127.0.0.1','api.meiduo.site']
+
+import datetime
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+}
