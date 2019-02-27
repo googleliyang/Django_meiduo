@@ -3,6 +3,8 @@ from rest_framework import serializers
 from django_redis import get_redis_connection
 import logging
 
+from verifications import constants
+
 logger = logging.getLogger('meiduo')
 
 
@@ -20,8 +22,8 @@ class RegisterSmsSerializer(serializers.Serializer):
     def validate(self, attrs):
         text = attrs.get('text')
         image_code_id = attrs.get('image_code_id')
-        redis_conn = get_redis_connection('code')
-        redis_img_key = 'img_%s' % image_code_id
+        redis_conn = get_redis_connection(constants.REDIS_CODE)
+        redis_img_key = constants.IMG_CODE_PREFIX % image_code_id
         redis_text = redis_conn.get(redis_img_key)
         if redis_text is None:
             raise serializers.ValidationError('验证码已过期')

@@ -16,7 +16,7 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-#让django找到 apps这个包
+# 让django找到 apps这个包
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 # Quick-start development settings - unsuitable for production
@@ -28,8 +28,6 @@ SECRET_KEY = 'w0xsszs$-d*a&vpc7r+t2u6$b%$*e#qv%7ktuost@mx)ht3z@8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'oauth.apps.OauthConfig',
     'rest_framework',
     'corsheaders',
 ]
@@ -75,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_meiduo.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -89,7 +87,6 @@ DATABASES = {
         'NAME': 'mall_meiduo'  # 数据库名字
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -109,12 +106,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'zh-Hans'
-
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -124,12 +119,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 CACHES = {
     # 预留
@@ -157,7 +150,6 @@ CACHES = {
 }
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "session"
-
 
 LOGGING = {
     'version': 1,
@@ -219,8 +211,8 @@ CORS_ORIGIN_WHITELIST = (
 )
 CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
 
-#允许哪些主机访问, 也就是哪个域名可以访问到我们的后台，这个是一种安全机制
-ALLOWED_HOSTS = ['127.0.0.1','api.meiduo.site']
+# 允许哪些主机访问, 也就是哪个域名可以访问到我们的后台，这个是一种安全机制
+ALLOWED_HOSTS = ['127.0.0.1', 'api.meiduo.site']
 
 import datetime
 
@@ -228,3 +220,12 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'utils.users.jwt_response_payload_handler',
 }
+
+AUTHENTICATION_BACKENDS = [
+    'utils.users.UsernameMobileAuthBackend',
+]
+
+# QQ登录参数
+QQ_CLIENT_ID = '101474184'
+QQ_CLIENT_SECRET = 'c6ce949e04e12ecc909ae6a8b09b637c'
+QQ_REDIRECT_URI = 'http://www.meiduo.site:8080/oauth_callback.html'

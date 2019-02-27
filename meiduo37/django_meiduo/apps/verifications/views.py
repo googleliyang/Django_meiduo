@@ -30,8 +30,8 @@ class RegisterSmsApiView(GenericAPIView):
         serializer = self.get_serializer(data=req.query_params)
         serializer.is_valid(raise_exception=True)
         redis_conn = get_redis_connection(constants.REDIS_CODE)
-        sms_flag = constants.SMS_CODE_FLAG % mobile
-        sms_code_flag = constants.SMS_CODE_FLAG % mobile
+        sms_flag = constants.SMS_CODE_PREFIX % mobile
+        sms_code_flag = constants.SMS_CODE_PREFIX % mobile
         if redis_conn.get(sms_flag):
             return Response(status=status.HTTP_429_TOO_MANY_REQUESTS)
 

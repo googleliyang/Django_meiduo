@@ -7,6 +7,7 @@ from rest_framework_jwt.settings import api_settings
 from users.models import User
 
 # 有模型需要保存至模型情况下使用 ModelSerializer
+from utils.users import get_token_by_jwt
 from verifications import constants as verify_constants
 
 
@@ -60,7 +61,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         if password != password2:
             raise serializers.ValidationError('两次密码输入不一致')
         redis_conn = get_redis_connection(verify_constants.REDIS_CODE)
-        redis_sms_code = redis_conn.get(verify_constants.SMS_CODE_FLAG % mobile)
+        redis_sms_code = redis_conn.get(verify_constants.SMS_CODE_PREFIX % mobile)
         if redis_sms_code is None:
             raise serializers.ValidationError('验证码已过期')
         if client_sms_code != redis_sms_code.decode():
@@ -78,11 +79,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
 
-        jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
-        jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
-        payload = jwt_payload_handler(user)
-        token = jwt_encode_handler(payload)
+        token = get_token_by_jwt(user)
         user.token = token
 
         return user
-
