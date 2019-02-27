@@ -90,6 +90,7 @@ class UserInfoSerializer(serializers.ModelSerializer):
        model = User
        exclude = ['password']
 
+
 class BindEmailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -99,6 +100,8 @@ class BindEmailSerializer(serializers.ModelSerializer):
         email = validated_data.get('email')
         instance.email = email
         instance.save()
+        from celery_tasks.email.tasks import send_email
+        email_address = instance.generate_verify_email_address()
+        send_email.delay(email, email_address)
         return instance
-        # TODO: 发送邮件
 

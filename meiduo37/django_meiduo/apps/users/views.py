@@ -39,9 +39,7 @@ class RegisterCreateView(APIView):
 class UserInfoApiView(APIView):
 
     def get(self, req):
-        user = jwt_decode_handler(req._auth)
-        user_id = user.get('user_id')
-        user_obj = User.objects.get(pk=user_id)
+        user_obj = self.request.user
         serializer = UserInfoSerializer(instance=user_obj)
         return Response(serializer.data)
 
@@ -64,15 +62,9 @@ class EmailApiView(APIView):
     # 根据 jwt token 获取用户 实例
     def put(self, req):
         permission_classes = [IsAuthenticated]
-        # token = req.META.get('Authorization')
         # 通过 debug 模式可以看到可以直接通过 self.request.user 获取 到 User 的模型类j
-        user = jwt_decode_handler(req._auth)
-        user_id = user.get('user_id')
-        user_obj = User.objects.get(pk=user_id)
+        user_obj = self.request.user
         serializer = BindEmailSerializer(instance=user_obj, data=req.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        from celery_tasks.email.tasks import send_email
-        email_address = user_obj.generate_verify_email_address()
-        send_email.delay(serializer.data.get('email'), email_address)
         return Response(data=serializer.data)
