@@ -242,3 +242,14 @@ EMAIL_HOST_PASSWORD = '123456a'
 # 收件人看到的发件人
 EMAIL_FROM = '美多商城<13468426658@163.com>'
 # DEFAULT_FROM_EMAIL = '13468426658@163.com'
+
+
+# 缓存扩展
+
+# DRF扩展
+REST_FRAMEWORK_EXTENSIONS = {
+    # 缓存时间
+    'DEFAULT_CACHE_RESPONSE_TIMEOUT': 60 * 60,
+    # 缓存存储
+    'DEFAULT_USE_CACHE': 'default',
+}

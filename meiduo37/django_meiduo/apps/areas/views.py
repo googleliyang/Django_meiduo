@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView
-
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
 # Create your views here.
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from areas.models import Area
-from areas.serializers import AreaSerializer
+from areas.serializers import AreaSerializer, AreaViewSetSerializer, SubViewSetSerializer
 
 
 # class AreaViewSet(ReadOnlyModelViewSet):
@@ -29,5 +29,17 @@ class AreaApiView(APIView):
         return Response(serializer_class.data)
 
 
+class AreaModelViewSet(CacheResponseMixin, ReadOnlyModelViewSet):
 
+    def get_queryset(self):
+        if self.action == 'list':
+            return Area.objects.filter(parent_id=None)
+        else:
+            return Area.objects
 
+    def get_serializer_class(self):
+        """通过 不同的 Serializer 控制返回数据"""
+        if self.action == 'list':
+            return AreaViewSetSerializer
+        else:
+            return SubViewSetSerializer
