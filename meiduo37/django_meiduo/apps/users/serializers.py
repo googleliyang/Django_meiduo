@@ -83,3 +83,22 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.token = token
 
         return user
+
+
+class UserInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+       model = User
+       exclude = ['password']
+
+class BindEmailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['email']
+
+    def update(self, instance, validated_data):
+        email = validated_data.get('email')
+        instance.email = email
+        instance.save()
+        return instance
+        # TODO: 发送邮件
+

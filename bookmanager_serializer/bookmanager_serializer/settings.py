@@ -150,3 +150,4 @@ REST_FRAMEWORK = {
 
 STATIC_URL = '/static/'
 
+

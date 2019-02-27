@@ -1,8 +1,8 @@
 from rest_framework import serializers
-
+from utils.serializer_expire import  SerializerExpire
 from oauth.models import OAuthQQUser
-from utils.users import get_check_user_token
 from verifications import constants
+from utils.serializer_expire import SerializerExpire
 
 
 class AuthUserSerializer(serializers.Serializer):
@@ -19,7 +19,8 @@ class AuthUserSerializer(serializers.Serializer):
         mobile = attrs.get('mobile')
         client_code = attrs.get('sms_code')
         access_token = attrs.get('access_token')
-        openid = get_check_user_token(access_token).openid
+        # openid = get_check_user_token(access_token).openid
+        openid = SerializerExpire.load_data(access_token).openid
         if openid is None:
             raise serializers.ValidationError('认证已过期')
         from django_redis import get_redis_connection
@@ -31,7 +32,7 @@ class AuthUserSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         access_token = validated_data.get('access_token')
-        openid = get_check_user_token(access_token).openid
+        openid = SerializerExpire.load_data(access_token).openid
         # 验证通过之后，保存用户，应该是保存 生成注册用户，并保存 oauth 信息
         # 参数传递过来的
         user = validated_data('user')

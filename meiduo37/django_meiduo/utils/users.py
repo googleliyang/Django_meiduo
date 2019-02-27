@@ -55,15 +55,15 @@ def generate_save_user_token(openId):
     token = serializer.dump(data)
     return token.decode()
 
-
-def get_check_user_token(access_token):
-    serializer = Serializer(settings.SECRET_KEY, expires_in=3600)
-    token = None
-    try:
-        token = serializer.loads(access_token)
-    except BadData as e:
-        print('BadData error %s' % e)
-    return token
+#
+# def get_check_user_token(access_token):
+#     serializer = Serializer(settings.SECRET_KEY, expires_in=3600)
+#     token = None
+#     try:
+#         token = serializer.loads(access_token)
+#     except BadData as e:
+#         print('BadData error %s' % e)
+#     return token
 
 
 def get_token_by_jwt(user):
