@@ -76,6 +76,18 @@
 
 ## Attension
 - EMAIL_FROM: 要么邮箱地址，要么是 xxx<邮箱地址>, 否则发送不成功
+- 自关联一对多就一张表
+
+```python
+| areas | CREATE TABLE `areas` (                                                                                  |
+|       |   `id` int(11) NOT NULL AUTO_INCREMENT,                                                                 |
+|       |   `name` varchar(10) NOT NULL,                                                                          |
+|       |   `parent_id` int(11) DEFAULT NULL,                                                                     |
+|       |   PRIMARY KEY (`id`),                                                                                   |
+|       |   KEY `areas_parent_id_c913d672_fk_areas_id` (`parent_id`),                                             |
+|       |   CONSTRAINT `areas_parent_id_c913d672_fk_areas_id` FOREIGN KEY (`parent_id`) REFERENCES `areas` (`id`) |
+|       | ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8
+```
 
 ## ISSUE 
 

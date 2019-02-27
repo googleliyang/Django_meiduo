@@ -35,3 +35,29 @@ ERROR 2019-02-27 14:49:13,623 exceptions 28 [<users.views.UserInfoApiView object
 ERROR 2019-02-27 14:50:48,879 exceptions 28 [<users.views.EmailApiView object at 0x110f68be0>] 'QueryDict' object is not callable
 ERROR 2019-02-27 14:51:07,648 exceptions 28 [<users.views.EmailApiView object at 0x11105cb00>] 'QueryDict' object is not callable
 ERROR 2019-02-27 14:51:58,587 exceptions 28 [<users.views.EmailApiView object at 0x107abea20>] maximum recursion depth exceeded while calling a Python object
+ERROR 2019-02-27 19:09:27,087 exceptions 28 [<areas.views.AreaViewSet object at 0x10fe0eb70>] 'AreaViewSet' should either include a `queryset` attribute, or override the `get_queryset()` method.
+ERROR 2019-02-27 19:26:41,264 exceptions 28 [<areas.views.AreaViewSet object at 0x10ec74908>] 'Area' object is not iterable
+ERROR 2019-02-27 19:26:44,065 exceptions 28 [<areas.views.AreaViewSet object at 0x10fb0f4a8>] 'Area' object is not iterable
+ERROR 2019-02-27 19:27:03,549 exceptions 28 [<areas.views.AreaViewSet object at 0x10fbb1f28>] 'Area' object is not iterable
+ERROR 2019-02-27 19:27:31,684 exceptions 28 [<areas.views.AreaViewSet object at 0x10fb29160>] 'Area' object is not iterable
+ERROR 2019-02-27 19:28:09,917 exceptions 28 [<areas.views.AreaViewSet object at 0x10d5758d0>] 'Area' object is not iterable
+ERROR 2019-02-27 19:31:18,974 exceptions 28 [<areas.views.ShiApiView object at 0x10ba02e48>] 'AreaSerializer' object is not callable
+ERROR 2019-02-27 19:31:25,590 exceptions 28 [<areas.views.ShiApiView object at 0x10bc12668>] 'ShiApiView' object has no attribute 'pk'
+ERROR 2019-02-27 19:31:39,501 exceptions 28 [<areas.views.ShiApiView object at 0x10bc26eb8>] 'ShiApiView' object has no attribute 'pk'
+ERROR 2019-02-27 19:31:49,465 exceptions 28 [<areas.views.ShiApiView object at 0x10bc8da20>] 'ShiApiView' object has no attribute 'pk'
+ERROR 2019-02-27 19:32:38,993 exceptions 28 [<areas.views.ShiApiView object at 0x10567eda0>] invalid literal for int() with base 10: 'pk'
+ERROR 2019-02-27 19:32:39,875 exceptions 28 [<areas.views.ShiApiView object at 0x1057f6f28>] invalid literal for int() with base 10: 'pk'
+ERROR 2019-02-27 19:32:40,264 exceptions 28 [<areas.views.ShiApiView object at 0x105803828>] invalid literal for int() with base 10: 'pk'
+ERROR 2019-02-27 19:32:40,459 exceptions 28 [<areas.views.ShiApiView object at 0x10588bc88>] invalid literal for int() with base 10: 'pk'
+ERROR 2019-02-27 19:33:54,006 exceptions 28 [<areas.views.ShiApiView object at 0x1047a9940>] get() returned more than one Area -- it returned 2!
+ERROR 2019-02-27 19:34:02,781 exceptions 28 [<areas.views.ShiApiView object at 0x10488f860>] get() returned more than one Area -- it returned 2!
+ERROR 2019-02-27 19:34:04,841 exceptions 28 [<areas.views.ShiApiView object at 0x10486eb38>] get() returned more than one Area -- it returned 2!
+ERROR 2019-02-27 19:35:53,698 exceptions 28 [<areas.views.ShiApiView object at 0x11053ada0>] 'AreaSerializer' object is not callable
+ERROR 2019-02-27 19:35:57,103 exceptions 28 [<areas.views.ShiApiView object at 0x1105c6cc0>] 'AreaSerializer' object is not callable
+ERROR 2019-02-27 19:36:04,723 exceptions 28 [<areas.views.ShiApiView object at 0x10fd18048>] 'AreaSerializer' object is not callable
+ERROR 2019-02-27 19:36:41,411 exceptions 28 [<areas.views.ShiApiView object at 0x110728da0>] 'AreaSerializer' object is not callable
+ERROR 2019-02-27 19:36:42,261 exceptions 28 [<areas.views.ShiApiView object at 0x1107eee80>] 'AreaSerializer' object is not callable
+ERROR 2019-02-27 19:44:14,780 exceptions 28 [<areas.views.ShiApiView object at 0x112f9d940>] get() got an unexpected keyword argument 'id'
+ERROR 2019-02-27 19:44:16,317 exceptions 28 [<areas.views.ShiApiView object at 0x11300a438>] get() got an unexpected keyword argument 'id'
+ERROR 2019-02-27 19:50:59,860 exceptions 28 [<areas.views.AreaApiView object at 0x10e663c88>] invalid literal for int() with base 10: ''
+ERROR 2019-02-27 19:51:00,818 exceptions 28 [<areas.views.AreaApiView object at 0x10e7d8748>] invalid literal for int() with base 10: ''
