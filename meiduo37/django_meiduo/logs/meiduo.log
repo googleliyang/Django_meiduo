@@ -1,0 +1,37 @@
+ERROR 2019-02-25 11:40:52,316 exceptions 27 [<users.views.RegisterCreateView object at 0x10fce3400>] Got AttributeError when attempting to get a value for field `allow` on serializer `RegisterSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `User` instance.
+Original exception text was: 'User' object has no attribute 'allow'.
+ERROR 2019-02-25 19:10:11,612 views 45 access_token获取失败
+ERROR 2019-02-25 19:10:11,618 views 45 access_token获取失败
+ERROR 2019-02-25 19:10:44,652 views 45 access_token获取失败
+ERROR 2019-02-25 19:10:54,677 exceptions 28 [<oauth.views.QQAuthUserView object at 0x1103b5278>] dump() missing 1 required positional argument: 'f'
+ERROR 2019-02-25 19:13:49,637 views 45 access_token获取失败
+ERROR 2019-02-25 19:14:25,327 exceptions 28 [<oauth.views.QQAuthUserView object at 0x10ee06c88>] dump() missing 1 required positional argument: 'f'
+ERROR 2019-02-25 19:15:55,369 views 45 access_token获取失败
+ERROR 2019-02-25 19:18:58,565 views 45 access_token获取失败
+ERROR 2019-02-25 19:20:19,072 views 45 access_token获取失败
+ERROR 2019-02-25 19:20:27,162 views 45 access_token获取失败
+ERROR 2019-02-25 19:20:36,327 exceptions 28 [<oauth.views.QQAuthUserView object at 0x10b1ab4e0>] dump() missing 1 required positional argument: 'f'
+ERROR 2019-02-25 19:21:29,685 views 45 access_token获取失败
+ERROR 2019-02-25 19:22:25,254 views 43 name 'oauth' is not defined
+ERROR 2019-02-27 10:17:23,066 exceptions 28 [<oauth.views.QQAuthUserView object at 0x10c2007b8>] dump() missing 1 required positional argument: 'f'
+ERROR 2019-02-27 10:21:52,888 views 45 access_token获取失败
+ERROR 2019-02-27 10:26:56,938 views 45 access_token获取失败
+ERROR 2019-02-27 10:57:11,823 exceptions 28 [<users.views.BindEmailApiView object at 0x11300e390>] get_object() missing 1 required positional argument: 'req'
+ERROR 2019-02-27 11:02:10,746 exceptions 28 [<users.views.BindEmailApiView object at 0x10dd0c6d8>] 'Request' object has no attribute 'header'
+ERROR 2019-02-27 11:04:28,720 exceptions 28 [<users.views.BindEmailApiView object at 0x10a74f2e8>] Invalid token type. Token must be a <class 'bytes'>
+ERROR 2019-02-27 11:11:16,079 exceptions 28 [<users.views.BindEmailApiView object at 0x10ac5f4e0>] Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
+ERROR 2019-02-27 11:13:32,470 exceptions 28 [<users.views.BindEmailApiView object at 0x10c62af28>] 'bytes' object is not callable
+ERROR 2019-02-27 11:16:30,871 exceptions 28 [<users.views.BindEmailApiView object at 0x113274160>] ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the BindEmailSerializer serializer.",)
+ERROR 2019-02-27 11:17:46,840 exceptions 28 [<users.views.BindEmailApiView object at 0x1054f4f98>] `update()` did not return an object instance.
+ERROR 2019-02-27 11:18:06,857 exceptions 28 [<users.views.BindEmailApiView object at 0x110510e10>] `update()` did not return an object instance.
+ERROR 2019-02-27 11:49:18,666 exceptions 28 [<users.views.BindEmailApiView object at 0x10e92a6d8>] 'ReturnDict' object has no attribute 'email'
+ERROR 2019-02-27 14:33:04,177 exceptions 28 [<users.views.EmailApiView object at 0x10d929da0>] 'dict' object has no attribute 'generate_verify_email_address'
+ERROR 2019-02-27 14:33:04,178 exceptions 28 [<users.views.EmailApiView object at 0x10dcbfd68>] 'dict' object has no attribute 'generate_verify_email_address'
+ERROR 2019-02-27 14:34:28,450 exceptions 28 [<users.views.EmailApiView object at 0x109250550>] dump() missing 1 required positional argument: 'f'
+ERROR 2019-02-27 14:47:45,599 exceptions 28 [<users.views.UserInfoApiView object at 0x10da2add8>] Invalid token type. Token must be a <class 'bytes'>
+ERROR 2019-02-27 14:48:03,895 exceptions 28 [<users.views.UserInfoApiView object at 0x10dbb0860>] Invalid token type. Token must be a <class 'bytes'>
+ERROR 2019-02-27 14:49:13,623 exceptions 28 [<users.views.UserInfoApiView object at 0x10dbb6748>] Invalid token type. Token must be a <class 'bytes'>
+ERROR 2019-02-27 14:50:48,879 exceptions 28 [<users.views.EmailApiView object at 0x110f68be0>] 'QueryDict' object is not callable
+ERROR 2019-02-27 14:51:07,648 exceptions 28 [<users.views.EmailApiView object at 0x11105cb00>] 'QueryDict' object is not callable
+ERROR 2019-02-27 14:51:58,587 exceptions 28 [<users.views.EmailApiView object at 0x107abea20>] maximum recursion depth exceeded while calling a Python object
