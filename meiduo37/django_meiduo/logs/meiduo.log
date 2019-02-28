@@ -61,3 +61,28 @@ ERROR 2019-02-27 19:44:14,780 exceptions 28 [<areas.views.ShiApiView object at 0
 ERROR 2019-02-27 19:44:16,317 exceptions 28 [<areas.views.ShiApiView object at 0x11300a438>] get() got an unexpected keyword argument 'id'
 ERROR 2019-02-27 19:50:59,860 exceptions 28 [<areas.views.AreaApiView object at 0x10e663c88>] invalid literal for int() with base 10: ''
 ERROR 2019-02-27 19:51:00,818 exceptions 28 [<areas.views.AreaApiView object at 0x10e7d8748>] invalid literal for int() with base 10: ''
+ERROR 2019-02-28 11:12:35,164 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104a73be0>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:12:36,357 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104ad1f98>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:12:36,799 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104b172b0>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:12:36,981 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104b2e390>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:12:37,169 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104b17080>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:12:37,360 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104b2eef0>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:12:37,516 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104b49f60>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:12:37,699 exceptions 28 [<areas.views.AddressModelViewSet object at 0x104b2e208>] (1146, "Table 'mall_meiduo.address' doesn't exist")
+ERROR 2019-02-28 11:53:31,586 exceptions 28 [<areas.views.AddressModelViewSet object at 0x105d79438>] Cannot set both 'fields' and 'exclude' options on serializer AddressModelSerializers.
+ERROR 2019-02-28 11:53:43,619 exceptions 28 [<areas.views.AddressModelViewSet object at 0x107a823c8>] (1048, "Column 'user_id' cannot be null")
+ERROR 2019-02-28 11:53:45,007 exceptions 28 [<areas.views.AddressModelViewSet object at 0x107b4f9e8>] (1048, "Column 'user_id' cannot be null")
+ERROR 2019-02-28 11:54:55,729 exceptions 28 [<areas.views.AddressModelViewSet object at 0x1123a3908>] `create()` did not return an object instance.
+ERROR 2019-02-28 12:07:13,570 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10a7ab588>] Cannot assign "True": "Address.area" must be a "Area" instance.
+ERROR 2019-02-28 12:10:29,539 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10b408518>] (1452, 'Cannot add or update a child row: a foreign key constraint fails (`mall_meiduo`.`address`, CONSTRAINT `address_area_id_6f54a149_fk_areas_id` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`))')
+ERROR 2019-02-28 12:10:30,547 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10b4d6d30>] (1452, 'Cannot add or update a child row: a foreign key constraint fails (`mall_meiduo`.`address`, CONSTRAINT `address_area_id_6f54a149_fk_areas_id` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`))')
+ERROR 2019-02-28 12:10:30,972 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10b530390>] (1452, 'Cannot add or update a child row: a foreign key constraint fails (`mall_meiduo`.`address`, CONSTRAINT `address_area_id_6f54a149_fk_areas_id` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`))')
+ERROR 2019-02-28 12:19:12,931 exceptions 28 [<areas.views.AddressModelViewSet object at 0x1114e6748>] You must call `.is_valid()` before calling `.save()`.
+ERROR 2019-02-28 12:22:00,913 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10e7ca710>] Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
+ERROR 2019-02-28 12:22:02,130 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10e8b5ac8>] Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
+ERROR 2019-02-28 12:22:02,470 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10e95def0>] Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
+ERROR 2019-02-28 12:24:08,558 exceptions 28 [<areas.views.AddressModelViewSet object at 0x103babda0>] 'NoneType' object has no attribute 'user_id'
+ERROR 2019-02-28 12:24:08,561 exceptions 28 [<areas.views.AddressModelViewSet object at 0x1039715f8>] 'NoneType' object has no attribute 'user_id'
+ERROR 2019-02-28 12:28:38,385 exceptions 28 [<areas.views.AddressModelViewSet object at 0x109035518>] 'User' object has no attribute 'user_id'
+ERROR 2019-02-28 12:28:54,535 exceptions 28 [<areas.views.AddressModelViewSet object at 0x10b171320>] 'User' object has no attribute 'get'
+ERROR 2019-02-28 12:33:37,614 exceptions 28 [<areas.views.AddressModelViewSet object at 0x1130276a0>] 'User' object has no attribute 'user_id'

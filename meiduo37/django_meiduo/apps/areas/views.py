@@ -4,10 +4,11 @@ from rest_framework_extensions.cache.mixins import CacheResponseMixin
 # Create your views here.
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.viewsets import ReadOnlyModelViewSet
+from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 
-from areas.models import Area
-from areas.serializers import AreaSerializer, AreaViewSetSerializer, SubViewSetSerializer
+from areas.models import Area, Address
+from areas.serializers import AreaSerializer, AreaViewSetSerializer, SubViewSetSerializer, AddressModelSerializers, \
+    AddressUpdateModelSerializer
 
 
 # class AreaViewSet(ReadOnlyModelViewSet):
@@ -43,3 +44,22 @@ class AreaModelViewSet(CacheResponseMixin, ReadOnlyModelViewSet):
             return AreaViewSetSerializer
         else:
             return SubViewSetSerializer
+
+
+class AddressModelViewSet(ModelViewSet):
+    queryset = Address.objects
+
+    # serializer_class = AddressModelSerializers
+
+    def create(self, request, *args, **kwargs):
+        user = request.user
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=user)
+        return Response(serializer.data)
+
+    def get_serializer_class(self):
+        if self.action == 'update':
+            return AddressUpdateModelSerializer
+        else:
+            return AddressModelSerializers
